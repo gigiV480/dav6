@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<form method="post" action="/" class="row g-3">
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">name</label>
+      <input  type="text"  name="inventarName" class="form-control" id="inventarName" required>
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">cost</label>
+      <input type="number" name="inventarCoast" class="form-control" id="inputPassword4" required>
+    </div>
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">condition</label>
+        <input  type="text" name="inventarCondition" class="form-control" id="inventarName" required>
+      </div>
+    </div>
+    <div class="col-12">
+      <button type="submit"  class="btn btn-primary">add</button>
+    </div>
+  </form>
+{% endblock%}

@@ -1,0 +1,48 @@
+{% extends  'layout.html' %}
+
+{% block content %}
+{% if success =='true' %}
+<div class="alert alert-danger" role="alert">
+    {{sms}}
+  </div>
+{% endif %}  
+
+
+{% if success1 =='true' %}
+<div class="alert alert-success" role="alert">
+    {{name}} has been changed
+  </div>
+{% endif %}
+
+
+{% if success2 =='true' %}
+<div class="alert alert-success" role="alert">
+   item added in database
+  </div>
+{% endif %}
+<table class="table table-success table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">name</th>
+        <th scope="col">cost</th>
+        <th scope="col">condition</th>
+        <th scope="col" >delete</th>
+        <th scope="col" >update</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for row in list %}
+      <tr>
+        <th scope="row">{{row['id']}}</th>
+        <td>{{row['name']}}</td>
+        <td>{{row['fasi']}} Gela</td>
+        <td>{{row['condition']}}</td>
+      <form action="/inventars" method="post" >  <td> <button type="submit" name = '{{row["id"]}}' class="btn btn-primary" >delete</button></td></form> 
+      <form action="/update:{{row.id}}" method="get" >  <td> <button type="submit" class="btn btn-primary" >update</button></td></form>
+      
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %} 
